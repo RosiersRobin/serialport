@@ -100,23 +100,26 @@ class SerialPort
     }
 
     /**
-     * Read data byte per byte until separator found
+     * Read data byte per byte until separator found or a timeout is reached
      *
+     * @param int $timeout 15
      * @return string
      */
-    public function read()
+    public function read($timeout = 15)
     {
         $this->ensureDeviceOpen();
 
         $chars = [];
 
+        $starttime = time();
+        
         do {
             $char = fread($this->fd, 1);
             if ($char === '') {
                 continue;
             }
             $chars[] = $char;
-        } while ($char !== $this->getParser()->getSeparator());
+        } while ($char !== $this->getParser()->getSeparator() && (time() - $starttime) < ($timeout + 1));
 
         return $this->getParser()->parse($chars);
     }
