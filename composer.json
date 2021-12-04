@@ -2,6 +2,7 @@
     "name": "rosiersrobin/serialport",
     "description": "Serial port access convenience class",
     "license": "MIT",
+    "version": "1.0.2",
     "authors": [
         {
             "name": "Thierry Thuon",
