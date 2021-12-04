@@ -13,7 +13,7 @@ use lepiaf\SerialPort\Parser\SeparatorParser;
 
 /**
  * SerialPort to handle serial connection easily with PHP
- * Suitable for Arduino communication
+ * Suitable for Arduino communication or Qibixx :)
  *
  * @author Thierry Thuon <lepiaf@users.noreply.github.com>
  * @copyright MIT
